@@ -1,86 +1,167 @@
+const prompt = require('prompt-sync')()
 
-const readline = require('readline').createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
+// 1. check age for vote
 
-function ask(question) {
-    return new Promise(resolve => {
-        readline.question(question, answer => resolve(answer));
-    });
+let age = prompt('Enter the Age')
+if(age >= 18){
+    console.log('You are eligible for vote')
+}
+else{
+    console.log('You are not eligible for vote')
 }
 
-(async function main() {
-    // 1. Even or Odd Checker
-    const num1 = parseInt(await ask("1. Enter a number to check Even or Odd: "));
-    if (num1 % 2 === 0) console.log("Even");
-    else console.log("Odd");
 
-    // 2. Positive, Negative, or Zero
-    const num2 = parseFloat(await ask("\n2. Enter a number to check if it's positive, negative, or zero: "));
-    if (num2 > 0) console.log("Positive");
-    else if (num2 < 0) console.log("Negative");
-    else console.log("Zero");
+// 2. Check the grade based on percentage
 
-    // 3. Age-based Eligibility
-    const age = parseInt(await ask("\n3. Enter your age: "));
-    if (age >= 18) console.log("Eligible to vote.");
-    else console.log("Not eligible to vote.");
+let p = prompt('Enter the percentage')
+if(p>=0 && p<=30){
+    console.log('Fail')
+}
+else if(p>=31 && p<=50){
+    console.log('grade C')
+}
+else if(p>=51 && p<=70){
+    console.log('grade B')
+}
+else if(p>=71 && p<=90){
+    console.log('grade A')
+}
+else if(p>=91 && p<=100){
+    console.log('grade A+')
+}
 
-    // 4. Number Range Validator (10 to 20)
-    const rangeNum = parseInt(await ask("\n4. Enter a number to check range (10–20): "));
-    if (rangeNum >= 10 && rangeNum <= 20) console.log("In range");
-    else console.log("Out of range");
 
-    // 5. Check Number Equality
-    const n1 = parseFloat(await ask("\n5. Enter first number: "));
-    const n2 = parseFloat(await ask("Enter second number: "));
-    if (n1 === n2) {
-        console.log("Numbers are equal.");
-    } else {
-        console.log("Numbers are not equal.");
-        console.log(`${n1 > n2 ? n1 : n2} is larger.`);
-    }
+// 3. check if a number positive, negative and Zero
 
-    // 6. Simple Grading System
-    const score = parseInt(await ask("\n6. Enter your score (0–100): "));
-    if (score >= 90) console.log("Grade A");
-    else if (score >= 75) console.log("Grade B");
-    else if (score >= 50) console.log("Grade C");
-    else console.log("Fail");
+let n = prompt('Enter the number for check number is positive or negative')
+if(n>0){
+    console.log('This is Positive Number')
+}
+else if(n<0){
+    console.log('This is Negative Number')
+}
+else{
+    console.log('This number is Zero')
+}
 
-    // 7. Divisibility Checker (5 and 11)
-    const divNum = parseInt(await ask("\n7. Enter a number to check divisibility by 5 and 11: "));
-    if (divNum % 5 === 0 && divNum % 11 === 0) console.log("Divisible by both 5 and 11.");
-    else console.log("Not divisible by both 5 and 11.");
 
-    // 8. Find the Largest of Three Numbers
-    const a = parseFloat(await ask("\n8. Enter first number: "));
-    const b = parseFloat(await ask("Enter second number: "));
-    const c = parseFloat(await ask("Enter third number: "));
-    let largest;
-    if (a >= b && a >= c) largest = a;
-    else if (b >= a && b >= c) largest = b;
-    else largest = c;
-    console.log(`Largest number is: ${largest}`);
+// 4. Check the month based on number 1-12
 
-    // 9. Leap Year Validator
-    const year = parseInt(await ask("\n9. Enter a year to check for leap year: "));
-    if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
-        console.log(`${year} is a leap year.`);
-    } else {
-        console.log(`${year} is not a leap year.`);
-    }
+let month = parseInt(prompt('Enter the number b/w 1-12 for check month - '))
+switch (month) {
+    case 1: console.log('January')
+        break;
+        case 2:
+             console.log('Febuary')
+        break;
+        case 3: 
+        console.log('March')
+        break;
+        case 4:
+             console.log('April')
+        break;
+        case 5:
+             console.log('May')
+        break;
+        case 6:
+             console.log('June')
+        break;
+        case 7:
+             console.log('July')
+        break;
+        case 8:
+             console.log('August')
+        break;
+        case 9:
+             console.log('September')
+        break;
+        case 10:
+             console.log('October')
+        break;
+        case 11:
+             console.log('November')
+        break;
+        case 12:
+             console.log('December')
+        break;
+default:
+    console.log('Number Invalid')
+        break;
+}
 
-    // 10. Vowel or Consonant
-    const char = (await ask("\n10. Enter a single alphabet character: ")).toLowerCase();
-    if (char.length !== 1 || !/[a-z]/.test(char)) {
-        console.log("Invalid input. Please enter a single alphabet letter.");
-    } else if ("aeiou".includes(char)) {
-        console.log("Vowel");
-    } else {
-        console.log("Consonant");
-    }
 
-    readline.close();
-}) ();
+// 5. check number is even or odd
+
+let aa = prompt('Enter the number for check number is even or odd')
+if(aa%2==0){
+    console.log('Number is Even')
+}
+  else{
+    console.log('Number is Odd')
+}
+
+
+// 6. Check number which divisoble by 5 and 11
+
+let num = prompt('Enter the number')
+if (num % 5 === 0 && num % 11 === 0) {
+    console.log("The number is divisible by both 5 and 11.")
+} 
+else {
+        console.log("The number is  not divisible by both 5 and 11.")
+}
+
+// 7. Find the largest of three number
+
+let a = prompt('Enter the First Number')
+let b = prompt('Enter the Second number')
+let c = prompt('Enter the Third number')
+let largest
+if(a>b && a>c)
+{
+   largest = a
+}
+else if(b>a && b>c)
+{
+    largest = b
+}
+else{
+    largest = c
+}
+console.log('The largest number is' + largest)
+
+
+// 8. Check a character is vowel or consonant
+
+let char = prompt('Enter the Character')
+if(char =='a' || 'e' || 'i' || 'o' || 'u' || 'A' || 'E' || 'I' || 'O' || 'U') 
+{
+    console.log( char + ' is a vowel')
+}
+else{
+    console.log( char + ' is a consonant')
+}
+console.log('')
+
+// 9. Check the numbers are equal 
+
+let n1 = prompt('Enter the First number-')
+let n2 = prompt('Enter the Second number-')
+if(n1==n2)
+{
+    console.log('Numbers are Equal')
+}
+else{
+    console.log('Numbers are not Equal')
+}
+
+// 10. Number range Validator
+
+let no = prompt('Enter the number')
+if(no>=1 && no<=10)
+{
+    console.log(no  + ' In the Range')
+}
+else{
+    console.log(no  + ' Out the Range')
+}
