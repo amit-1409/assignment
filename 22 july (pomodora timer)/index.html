@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Pomodoro Timer</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🍅 Pomodoro Timer</h1>
+
+    <div>
+      Work: <input id="work" type="number" value="25">min
+      Break: <input id="shortBreak" type="number" value="5">min
+      Long Break: <input id="longBreak" type="number" value="15">min
+      Cycles: <input id="cycles" type="number" value="4">
+    </div>
+
+    <div class="session" id="sessionLabel">Session: Work</div>
+    <div class="timer" id="timer">25:00</div>
+
+    <div class="controls">
+      <button onclick="start()">Start</button>
+      <button onclick="pause()">Pause</button>
+      <button onclick="reset()">Reset</button>
+    </div>
+
+    <div class="indicators" id="indicator">⚪ ⚪ ⚪ ⚪</div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
