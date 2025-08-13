@@ -1,0 +1,17 @@
+[
+  {
+    "icon": "MdPlace",
+    "title": "Find us",
+    "details": "Alwar"
+  },
+  {
+    "icon": "IoCallSharp",
+    "title": "Call us",
+    "details": "XXXXXXXX17"
+  },
+  {
+    "icon": "TbMailPlus",
+    "title": "Mail us",
+    "details": "abc123@gmail.com"
+  }
+]
